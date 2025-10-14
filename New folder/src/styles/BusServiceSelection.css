@@ -1,0 +1,149 @@
+.bus-service-main-container {
+  margin: 20px 0;
+  /* Removed background-color, padding, and border-radius */
+}
+
+.single-line-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  position: relative;
+}
+
+/* Position slot container to the right with 5px space before icons */
+.single-line-container > :nth-child(2) {
+  position: absolute;
+  right: 120px; /* Adjust based on icon sizes: 50px + 32px + 15px gap - 5px space = ~90px */
+}
+
+.service-type-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.service-type-title {
+  font-family: 'Samsung InterFace', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #333;
+  margin: 0;
+}
+
+.service-options {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.service-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.service-radio {
+  width: 16px;
+  height: 16px;
+  accent-color: #38AEE0;
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+.service-radio:checked {
+  border-color: #38AEE0;
+  background-color: white;
+}
+
+.service-radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #38AEE0;
+}
+
+.service-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  cursor: pointer;
+}
+
+.action-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-shrink: 0;
+  position: absolute;
+  right: 0;
+}
+
+/* Notes icon container for relative positioning */
+.notes-icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Make payment icon bigger */
+.action-icon:first-child {
+  width: 50px;
+  height: 50px;
+}
+
+.action-icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* Keep Notes icon normal size */
+.action-icon:last-child {
+  width: 24px;
+  height: 24px;
+}
+
+.action-icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.action-icon:hover {
+  opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .single-line-container {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .action-icons {
+    align-self: center;
+    margin-right: 0;
+  }
+}

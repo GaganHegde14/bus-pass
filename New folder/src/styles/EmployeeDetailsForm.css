@@ -1,0 +1,461 @@
+/* Employee Details Form Container - Basic Grey Container */
+.employee-details-form-container {
+  background: #f9fafb;
+  border-radius: 10px;
+  margin-left: 20px;
+  width: calc(100% - 40px);
+  min-height: 200px;
+  box-sizing: border-box;
+  max-width: calc(100vw - 40px);
+}
+
+/* Header Slots */
+.slots-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border: 1px solid #e9ecef;
+}
+
+.slot-item {
+  font-size: 13px;
+  color: #495057;
+}
+
+.slot-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.payment-btn,
+.note-btn {
+  padding: 6px 12px;
+  border: 1px solid #dee2e6;
+  background: white;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.payment-btn:hover,
+.note-btn:hover {
+  background: #f8f9fa;
+}
+
+.header-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Bus Booking Form Styles */
+.bus-booking-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Form Sections */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Radio Groups */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  margin: 0;
+  accent-color: #007bff;
+}
+
+.radio-text {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Form Fields Row */
+.form-fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  margin: 20px 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.required {
+  color: #ff0000;
+}
+
+/* Location Input */
+.location-input-wrapper {
+  position: relative;
+  display: block;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.location-input {
+  width: 100%;
+  padding: 10px 35px 10px 35px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+/* Date Input */
+.date-input-wrapper {
+  position: relative;
+  display: block;
+}
+
+.date-input {
+  width: 100%;
+  padding: 10px 35px 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+/* Mobile Input */
+.mobile-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+}
+
+/* Bus Route Section */
+.bus-route-section {
+  margin-top: 30px;
+}
+
+.bus-route-title {
+  background: #e9ecef;
+  padding: 12px 15px;
+  margin: 0 0 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #dee2e6;
+  border-bottom: none;
+}
+
+/* Route Table */
+.route-table {
+  border: 1px solid #dee2e6;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  background: white;
+}
+
+.route-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2.5fr 1fr;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.header-cell {
+  padding: 12px 15px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #495057;
+  border-right: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-cell:last-child {
+  border-right: none;
+}
+
+.route-name-header {
+  text-align: left;
+}
+
+.info-icon {
+  color: #007bff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.route-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2.5fr 1fr;
+  border-bottom: 1px solid #dee2e6;
+  background: white;
+}
+
+.route-row:last-child {
+  border-bottom: none;
+}
+
+.route-cell {
+  padding: 15px;
+  border-right: 1px solid #dee2e6;
+  font-size: 13px;
+  color: #495057;
+  display: flex;
+  align-items: flex-start;
+  vertical-align: top;
+}
+
+.route-cell:last-child {
+  border-right: none;
+}
+
+.route-name-cell {
+  align-items: flex-start;
+  padding-top: 18px;
+}
+
+.route-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.plus-icon {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+/* Seat Status */
+.seat-status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.seat-status.available {
+  background: #d4edda;
+  color: #155724;
+}
+
+.seat-status.occupied {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Occupied Cell - Multi-line content */
+.occupied-cell {
+  align-items: flex-start;
+  padding-top: 15px;
+}
+
+/* Slot Timing */
+.slot-timing {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #495057;
+}
+
+.slot-timing strong {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Buttons */
+.click-here-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+}
+
+.click-here-btn:hover {
+  color: #0056b3;
+}
+
+.route-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.notify-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.notify-btn:hover {
+  color: #0056b3;
+}
+
+/* Agreement Section */
+.agreement-section {
+  margin: 20px 0 0 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.agreement-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #495057;
+}
+
+.agreement-checkbox input[type="checkbox"] {
+  margin: 2px 0 0 0;
+  accent-color: #007bff;
+  width: 16px;
+  height: 16px;
+}
+
+/* Submit Section */
+.submit-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+.submit-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slots-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .form-fields-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .route-header,
+  .route-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-cell,
+  .route-cell {
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+    padding: 10px;
+  }
+  
+  .radio-group {
+    flex-wrap: wrap;
+  }
+}

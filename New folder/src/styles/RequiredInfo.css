@@ -1,0 +1,24 @@
+.required-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin: 0;
+  padding: 16px 16px;
+}
+
+/* ensure Inter (with 700 weight) is available for bold rendering */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+.clipboard-icon {
+  font-size: 24px;
+  color: #333333;
+}
+
+.required-text {
+  font-size: 20px;
+  /* make text bold to match design */
+  font-weight: 700 !important;
+  color: #333333;
+  font-family: "Inter", "Samsung InterFace", "Segoe UI", Arial, sans-serif;
+}
