@@ -1,0 +1,87 @@
+/* Bus Operating Time Popup */
+.bus-operating-popup {
+  position: absolute;
+  width: 428px;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px 8px 15px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  opacity: 1;
+}
+
+/* Arrow pointing to info icon */
+.bus-operating-popup::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 348px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ffffff;
+  z-index: 1001;
+}
+
+/* Arrow border for shadow effect */
+.bus-operating-popup::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 347px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid #e5e7eb;
+  z-index: 1000;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.slot-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "Samsung InterFace", "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.slot-text {
+  font-weight: 400;
+  font-size: 12.5px;
+  color: #374151;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .bus-operating-popup {
+    width: 320px;
+    height: auto;
+    min-height: 50px;
+    padding: 6px 8px 6px 12px;
+  }
+
+  .slot-row {
+    font-size: 11px;
+  }
+
+  .slot-text {
+    white-space: normal;
+    word-break: break-word;
+  }
+}

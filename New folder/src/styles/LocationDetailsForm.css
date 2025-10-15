@@ -179,7 +179,7 @@
 .agreement-checkbox {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 5px;
   cursor: pointer;
   font-family: "Samsung InterFace", "Inter", sans-serif;
   font-size: 14px;

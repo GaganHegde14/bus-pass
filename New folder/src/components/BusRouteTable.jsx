@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../styles/BusRouteTable.css";
 import plusIcon from "../assets/svg/plusicon.svg";
 import redBellIcon from "../assets/svg/redbellicon.svg";
 import infoMarkIcon from "../assets/svg/infomark.svg";
+import BusOperatingTimePopup from "./BusOperatingTimePopup";
 
 const BusRouteTable = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const infoIconRef = useRef(null);
+
+  const handleInfoClick = () => {
+    setShowPopup(!showPopup);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
+  // Calculate popup position
+  useEffect(() => {
+    if (showPopup && infoIconRef.current) {
+      const popup = document.querySelector(".bus-operating-popup");
+      if (popup) {
+        const iconRect = infoIconRef.current.getBoundingClientRect();
+        popup.style.top = `${iconRect.bottom + 8}px`;
+        popup.style.left = `680px`; // Fixed position at 680px
+      }
+    }
+  }, [showPopup]);
   return (
     <div className="bus-route-table-container">
       {/* Header with Bus Route List title */}
@@ -20,7 +43,13 @@ const BusRouteTable = () => {
           <div className="header-cell occupied-col">Occupied</div>
           <div className="header-cell operating-time-col">
             Bus Operating Time
-            <img src={infoMarkIcon} alt="Info" className="info-icon" />
+            <img
+              ref={infoIconRef}
+              src={infoMarkIcon}
+              alt="Info"
+              className="info-icon"
+              onClick={handleInfoClick}
+            />
           </div>
           <div className="header-cell route-map-col">Route Map</div>
         </div>
@@ -67,6 +96,13 @@ const BusRouteTable = () => {
           </div>
         </div>
       </div>
+
+      {/* Bus Operating Time Popup */}
+      <BusOperatingTimePopup
+        isOpen={showPopup}
+        onClose={handleClosePopup}
+        triggerRef={infoIconRef}
+      />
     </div>
   );
 };
