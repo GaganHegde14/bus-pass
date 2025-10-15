@@ -22,7 +22,15 @@
 
 .custom-checkbox-label {
   font-size: 14px;
-  font-weight: 400;
   color: #333;
   cursor: pointer;
+  transition: font-weight 0.2s ease;
+}
+
+.custom-checkbox-label.checked {
+  font-weight: 700;
+}
+
+.custom-checkbox-label.unchecked {
+  font-weight: 400;
 }

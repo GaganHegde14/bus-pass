@@ -242,7 +242,7 @@
 }
 
 .submit-button {
-  background: #0066ff;
+  background: #38aee0;
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -255,7 +255,7 @@
 }
 
 .submit-button:hover {
-  background: #0052cc;
+  background: #38aee0;
 }
 
 /* Responsive Design */

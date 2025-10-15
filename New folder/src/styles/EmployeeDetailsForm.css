@@ -200,10 +200,6 @@
   background: white;
 }
 
-/* Bus Route Section */
-.bus-route-section {
-  margin-top: 30px;
-}
 
 .bus-route-title {
   background: #e9ecef;
@@ -348,13 +344,10 @@
   color: #007bff;
   text-decoration: underline;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0;
 }
 
-.click-here-btn:hover {
-  color: #0056b3;
-}
 
 .route-actions {
   display: flex;
@@ -392,7 +385,7 @@
 .agreement-checkbox {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 5px;
   cursor: pointer;
   font-size: 13px;
   line-height: 1.5;
@@ -415,7 +408,7 @@
 }
 
 .submit-button {
-  background: #007bff;
+  background: #38AEE0;
   color: white;
   border: none;
   padding: 10px 24px;
@@ -427,7 +420,7 @@
 }
 
 .submit-button:hover {
-  background: #0056b3;
+  background: #38AEE0;
 }
 
 /* Responsive Design */

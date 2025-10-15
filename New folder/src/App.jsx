@@ -3,7 +3,6 @@ import "./App.css";
 import Navbar from "./components/Navbar.jsx";
 import Avatars1 from "./components/EmployeeSubmit.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Gaapproval from "./components/gaapproval.jsx";
 import Report from "./components/Report.jsx";
 import BusServiceSelection from "./components/BusServiceSelection.jsx";
 function App() {
@@ -14,9 +13,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/cardrequest" element={<Avatars1 />} />
-          <Route path="/cardrequestkannada" element={<Avatars1 />} />
-          <Route path="/gaapproval" element={<Gaapproval />} />
+          <Route path="/state1" element={<Avatars1 />} />
           <Route path="/report" element={<Report />} />
         </Routes>
       </Router>

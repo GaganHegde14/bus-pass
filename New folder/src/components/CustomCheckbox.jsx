@@ -1,8 +1,15 @@
-import React from 'react';
-import markedCheckbox from '../assets/svg/markedcheckmark.svg';
-import unmarkedCheckbox from '../assets/svg/unmarkedcheckmark.svg';
+import React from "react";
+import markedCheckbox from "../assets/svg/markedcheckmark.svg";
+import unmarkedCheckbox from "../assets/svg/unmarkedcheckmark.svg";
 
-const CustomCheckbox = ({ checked, onChange, name, value, label, className = "" }) => {
+const CustomCheckbox = ({
+  checked,
+  onChange,
+  name,
+  value,
+  label,
+  className = "",
+}) => {
   return (
     <label className={`custom-checkbox-container ${className}`}>
       <input
@@ -13,12 +20,16 @@ const CustomCheckbox = ({ checked, onChange, name, value, label, className = "" 
         onChange={onChange}
         className="custom-checkbox-input"
       />
-      <img 
-        src={checked ? markedCheckbox : unmarkedCheckbox} 
+      <img
+        src={checked ? markedCheckbox : unmarkedCheckbox}
         alt={checked ? "Checked" : "Unchecked"}
         className="custom-checkbox-icon"
       />
-      <span className="custom-checkbox-label">{label}</span>
+      <span
+        className={`custom-checkbox-label ${checked ? "checked" : "unchecked"}`}
+      >
+        {label}
+      </span>
     </label>
   );
 };
