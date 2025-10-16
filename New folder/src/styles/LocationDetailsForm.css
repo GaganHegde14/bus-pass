@@ -179,7 +179,7 @@
 .agreement-checkbox {
   display: flex;
   align-items: flex-start;
-  gap: 5px;
+  gap: 8px;
   cursor: pointer;
   font-family: "Samsung InterFace", "Inter", sans-serif;
   font-size: 14px;
@@ -187,11 +187,53 @@
   font-style: normal;
   line-height: 1.5;
   color: #374151;
+  position: relative;
 }
 
 .agreement-checkbox input[type="checkbox"] {
-  margin: 2px 0 0 0;
-  accent-color: #007bff;
-  width: 16px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: relative;
+  top: 2px;
   height: 16px;
+  width: 16px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.agreement-checkbox:hover input ~ .checkmark {
+  border-color: #9ca3af;
+}
+
+.agreement-checkbox input:checked ~ .checkmark {
+  background-color: #39aee1;
+  border-color: #39aee1;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.agreement-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.agreement-checkbox .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
