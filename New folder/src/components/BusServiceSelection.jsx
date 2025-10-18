@@ -1,16 +1,21 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PaymentIcon from '../assets/svg/payment.svg';
-import NoteIcon from '../assets/svg/noteicon.svg';
-import SlotInfo from './SlotInfo';
-import CustomCheckbox from './CustomCheckbox';
-import NotesPopup from './NotesPopup';
-import '../styles/BusServiceSelection.css';
-import '../styles/CustomCheckbox.css';
+import React, { useState, useEffect, useRef } from "react";
+import PaymentIcon from "../assets/svg/payment.svg";
+import NoteIcon from "../assets/svg/noteicon.svg";
+import SlotInfo from "./SlotInfo";
+import CustomCheckbox from "./CustomCheckbox";
+import NotesPopup from "./NotesPopup";
+import "../styles/BusServiceSelection.css";
+import "../styles/CustomCheckbox.css";
 
-const BusServiceSelection = () => {
-  const [selectedService, setSelectedService] = useState('shuttle');
+const BusServiceSelection = ({ selectedRequestType, isReportRoute }) => {
+  const [selectedService, setSelectedService] = useState("shuttle");
   const [isNotesPopupOpen, setIsNotesPopupOpen] = useState(false);
   const notesContainerRef = useRef(null);
+
+  // Check if De-Registration is selected to hide payment icon
+  const isDeRegistration = selectedRequestType === "De-Registration";
+  // For report route, hide both payment and notes icons
+  const hideActionIcons = isDeRegistration || isReportRoute;
 
   const handleNotesClick = () => {
     setIsNotesPopupOpen(true);
@@ -23,17 +28,20 @@ const BusServiceSelection = () => {
   // Close popup when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (notesContainerRef.current && !notesContainerRef.current.contains(event.target)) {
+      if (
+        notesContainerRef.current &&
+        !notesContainerRef.current.contains(event.target)
+      ) {
         setIsNotesPopupOpen(false);
       }
     };
 
     if (isNotesPopupOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isNotesPopupOpen]);
 
@@ -44,40 +52,58 @@ const BusServiceSelection = () => {
           <h3 className="service-type-title">Service Type</h3>
           <div className="service-options">
             <CustomCheckbox
-              checked={selectedService === 'shuttle'}
-              onChange={(e) => setSelectedService(e.target.value)}
+              checked={selectedService === "shuttle"}
+              onChange={
+                !isReportRoute
+                  ? (e) => setSelectedService(e.target.value)
+                  : undefined
+              }
               name="serviceType"
               value="shuttle"
               label="Shuttle"
+              disabled={isReportRoute}
+              isReportRoute={isReportRoute}
             />
-            
+
             <CustomCheckbox
-              checked={selectedService === 'lmc'}
-              onChange={(e) => setSelectedService(e.target.value)}
+              checked={selectedService === "lmc"}
+              onChange={
+                !isReportRoute
+                  ? (e) => setSelectedService(e.target.value)
+                  : undefined
+              }
               name="serviceType"
               value="lmc"
               label="LMC"
+              disabled={isReportRoute}
+              isReportRoute={isReportRoute}
             />
           </div>
         </div>
 
-        <SlotInfo />
-        
-        <div className="action-icons">
-          <img src={PaymentIcon} alt="Payment" className="action-icon" />
-          <div className="notes-icon-container" ref={notesContainerRef}>
-            <img 
-              src={NoteIcon} 
-              alt="Note" 
-              className="action-icon" 
-              onClick={handleNotesClick}
-            />
-            <NotesPopup 
-              isOpen={isNotesPopupOpen} 
-              onClose={handleCloseNotesPopup} 
-            />
+        {/* Hide SlotInfo and action icons for report route */}
+        {!isReportRoute && <SlotInfo />}
+
+        {!isReportRoute && (
+          <div className="action-icons">
+            {/* Hide payment icon for De-Registration */}
+            {!isDeRegistration && (
+              <img src={PaymentIcon} alt="Payment" className="action-icon" />
+            )}
+            <div className="notes-icon-container" ref={notesContainerRef}>
+              <img
+                src={NoteIcon}
+                alt="Note"
+                className="action-icon"
+                onClick={handleNotesClick}
+              />
+              <NotesPopup
+                isOpen={isNotesPopupOpen}
+                onClose={handleCloseNotesPopup}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

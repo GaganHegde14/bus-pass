@@ -4,8 +4,12 @@ import datepickerIcon from "../assets/svg/datepickericon.svg";
 import dropdownIcon from "../assets/svg/dropdown.svg";
 import searchIcon from "../assets/svg/searchicon.svg";
 import BusRouteTable from "./BusRouteTable";
+import CommentInput from "./CommentInput";
 
-const LocationDetailsForm = () => {
+const LocationDetailsForm = ({
+  selectedRequestType,
+  isReportRoute = false,
+}) => {
   const [formData, setFormData] = useState({
     location: "Marathalli",
     effectiveDate: "2024-05-24",
@@ -13,6 +17,10 @@ const LocationDetailsForm = () => {
   });
 
   const [isAgreed, setIsAgreed] = useState(true);
+
+  // Check if De-Registration is selected or if it's report route to disable inputs
+  const isDeRegistration = selectedRequestType === "De-Registration";
+  const shouldDisableInputs = isDeRegistration || isReportRoute;
 
   const locationOptions = [
     "Marathalli",
@@ -52,7 +60,10 @@ const LocationDetailsForm = () => {
               name="location"
               value={formData.location}
               onChange={handleInputChange}
-              className="form-input location-select"
+              className={`form-input location-select ${
+                shouldDisableInputs ? "disabled-input" : ""
+              }`}
+              disabled={shouldDisableInputs}
             >
               {locationOptions.map((option) => (
                 <option key={option} value={option}>
@@ -75,7 +86,10 @@ const LocationDetailsForm = () => {
               name="effectiveDate"
               value={formData.effectiveDate}
               onChange={handleInputChange}
-              className="form-input date-input"
+              className={`form-input date-input ${
+                shouldDisableInputs ? "disabled-input" : ""
+              }`}
+              disabled={shouldDisableInputs}
             />
             <img
               src={datepickerIcon}
@@ -95,30 +109,43 @@ const LocationDetailsForm = () => {
               name="mobileNo"
               value={formData.mobileNo}
               onChange={handleInputChange}
-              className="form-input mobile-input"
+              className={`form-input mobile-input ${
+                shouldDisableInputs ? "disabled-input" : ""
+              }`}
               placeholder="+91 7550142047"
+              disabled={shouldDisableInputs}
             />
           </div>
         </div>
       </div>
 
       {/* Bus Route Table */}
-      <BusRouteTable />
+      <BusRouteTable
+        selectedRequestType={selectedRequestType}
+        isReportRoute={isReportRoute}
+      />
 
-      {/* Agreement Section */}
-      <div className="agreement-section">
-        <label className="agreement-checkbox">
-          <input
-            type="checkbox"
-            checked={isAgreed}
-            onChange={handleAgreementChange}
-          />
-          <span className="checkmark"></span>I agree to pay the current
-          subsidized fees of <strong>INR 800/-</strong> to avail the shuttle
-          services provided by SRIB. The said fees is subject to revision as per
-          managements' discretion.
-        </label>
-      </div>
+      {/* Agreement Section - Hide for De-Registration and Report Route */}
+      {!isDeRegistration && !isReportRoute && (
+        <div className="agreement-section">
+          <label className="agreement-checkbox">
+            <input
+              type="checkbox"
+              checked={isAgreed}
+              onChange={handleAgreementChange}
+            />
+            <span className="checkmark"></span>I agree to pay the current
+            subsidized fees of <strong>INR 800/-</strong> to avail the shuttle
+            services provided by SRIB. The said fees is subject to revision as
+            per managements' discretion.
+          </label>
+        </div>
+      )}
+
+      {/* Comment Input - appears when Change Route OR De-Registration is selected, but not for report route */}
+      {!isReportRoute &&
+        (selectedRequestType === "Change Route" ||
+          selectedRequestType === "De-Registration") && <CommentInput />}
     </div>
   );
 };

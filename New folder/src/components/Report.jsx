@@ -3,7 +3,7 @@ import "../styles/Avatars1.css";
 import Header from "./Header";
 import EmployeeProfile from "./EmployeeProfile";
 import RequiredInfo from "./RequiredInfo";
-import VisitingCard from "./VisitingCard";
+import BusPassRequestCard from "./BusPassRequestCard";
 
 const Report = () => {
   const employeeData = {
@@ -23,14 +23,14 @@ const Report = () => {
     <div className="avatars-container">
       <Header
         breadcrumb="My Workspace > Visiting Card Request"
-        title="Visiting Card - Card Request"
+        title="Bus Pass Request - Report"
       />
 
       <EmployeeProfile employee={employeeData} />
 
       <RequiredInfo />
 
-      <VisitingCard />
+      <BusPassRequestCard />
     </div>
   );
 };

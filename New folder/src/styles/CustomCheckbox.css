@@ -34,3 +34,23 @@
 .custom-checkbox-label.unchecked {
   font-weight: 400;
 }
+
+/* Disabled state for report route */
+.custom-checkbox-container.disabled {
+  cursor: not-allowed;
+  /* Remove opacity to keep text normal */
+}
+
+.custom-checkbox-container.disabled .custom-checkbox-icon {
+  cursor: not-allowed;
+  /* Remove filter to let grey checkbox show properly */
+}
+
+.custom-checkbox-container.disabled .custom-checkbox-label {
+  cursor: not-allowed;
+  /* Keep text color and weight normal - no overrides */
+}
+
+.custom-checkbox-container.disabled .custom-checkbox-icon:hover {
+  opacity: 1;
+}

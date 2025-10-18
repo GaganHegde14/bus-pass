@@ -237,3 +237,16 @@
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+
+/* Disabled Input Styles for De-Registration */
+.disabled-input {
+  background-color: #f3f3f3 !important;
+  color: #9ca3af !important;
+  cursor: not-allowed !important;
+  opacity: 1 !important;
+}
+
+.disabled-input:focus {
+  border-color: #d1d5db !important;
+  box-shadow: none !important;
+}

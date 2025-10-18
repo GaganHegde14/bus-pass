@@ -12,6 +12,7 @@ import BusRouteTable from "./BusRouteTable";
 const EmployeeDetailsForm = () => {
   const location = useLocation();
   const isCardRequestRoute = location.pathname === "/state1";
+  const isReportRoute = location.pathname === "/report";
 
   const [formData, setFormData] = useState({
     serviceType: "Shuttle",
@@ -22,6 +23,10 @@ const EmployeeDetailsForm = () => {
     selectedRoute: "E1 - SEEDEMALLI",
   });
 
+  const [selectedRequestType, setSelectedRequestType] = useState(
+    isReportRoute ? "Registration" : "Registration"
+  );
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -30,12 +35,20 @@ const EmployeeDetailsForm = () => {
     }));
   };
 
+  const handleRequestTypeChange = (requestType) => {
+    setSelectedRequestType(requestType);
+    setFormData((prevState) => ({
+      ...prevState,
+      requestType: requestType,
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Bus booking form submitted:", formData);
   };
 
-  if (!isCardRequestRoute) {
+  if (!isCardRequestRoute && !isReportRoute) {
     return (
       <div className="employee-details-form-container">
         {/* Empty grey container for other routes */}
@@ -47,22 +60,33 @@ const EmployeeDetailsForm = () => {
     <div className="employee-details-form-container">
       {/* Header Slots */}
 
-      <BusServiceSelection />
+      <BusServiceSelection
+        selectedRequestType={selectedRequestType}
+        isReportRoute={isReportRoute}
+      />
 
-      <RequestType />
+      <RequestType
+        onRequestTypeChange={handleRequestTypeChange}
+        isReportRoute={isReportRoute}
+      />
 
       <form onSubmit={handleSubmit} className="bus-booking-form">
         {/* Service Type */}
 
         {/* Location Details Form */}
-        <LocationDetailsForm />
+        <LocationDetailsForm
+          selectedRequestType={selectedRequestType}
+          isReportRoute={isReportRoute}
+        />
 
-        {/* Submit Button */}
-        <div className="submit-section">
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
-        </div>
+        {/* Submit Button - Hide for Report route */}
+        {!isReportRoute && (
+          <div className="submit-section">
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );
